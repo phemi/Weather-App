@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+  <div class="header">Weather App</div>
     <router-view/>
   </div>
 </template>
@@ -17,6 +18,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+.header {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 20px;
+  text-align: 10px;
+}
+
 </style>

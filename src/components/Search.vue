@@ -22,14 +22,6 @@
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
-        cityList: [
-          "Istanbul",
-          "Berlin",
-          "London",
-          "Helsinki",
-          "Dublin",
-          "Vancouver",
-        ],
         weatherArray: [],
         loading: true,
         search_param: '',
