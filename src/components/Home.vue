@@ -1,5 +1,10 @@
 <template>
   <div class="hello">
+    <div >
+      <h2>Weather Forecast</h2>
+      <input v-model='search_param' class='search_input' placeholder='Enter the location (e.g Dublin)' type='text'/>
+      <router-link class='search_button' :to="searchUrl()" > Search</router-link>
+    </div>
     <h2 v-if="loading">Loading...</h2>
     <weather v-for="(city, index) in weatherArray" :city="city" :key="index" :loading='loading'/>
   </div>
@@ -22,11 +27,17 @@
           "Vancouver",
         ],
         weatherArray: [],
-        loading: true
+        loading: true,
+        search_param: ''
       }
     },
     components: {
       weather
+    },
+    methods: {
+            searchUrl: function () {
+                return "search/" + this.search_param
+            }
     },
     mounted(){
       this.cityList.map((city) => {
@@ -68,4 +79,18 @@
   a {
     color: #42b983;
   }
+
+  .search_input{
+    width: 60%;
+    height: 30px;
+    padding-left: 10px;
+  }
+
+  .search_button{
+    padding: 10px;
+    text-decoration: none;
+    background-color: #36d40f;
+    color: #ffffff;
+  }
+
 </style>
