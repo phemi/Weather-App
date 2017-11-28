@@ -14,12 +14,16 @@
   export default {
     props: ['woeid'],
     name: 'Location',
-    title: 'Getting location details...',
     data () {
       return {
         weatherArray: [],
         loading: true,
-        search_param: ''
+        title: 'Getting location details...',
+        search_param: '',
+        days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        d: '',
+        dayName: '',
+        dayOftheWeek: ''
       }
     },
     components: {
@@ -28,6 +32,13 @@
     methods: {
             searchUrl: function () {
                 return "search/" + this.search_param
+            },
+            getDayName: function (applicable_date) {
+
+            this.d = new Date(applicable_date);
+            this.dayName = this.days[this.d.getDay()];
+
+            return this.dayName;
             }
     },
     mounted(){
@@ -35,6 +46,9 @@
       .then((response) => {
         this.title = response.data.title
         response.data.consolidated_weather.map((weather) => {
+        this.dayOftheWeek = this.getDayName(weather.applicable_date)
+        weather.applicable_date = this.dayOftheWeek+": "+weather.applicable_date
+
           this.weatherArray.push(weather);
           this.loading = false
         })

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  <div class="header">Weather App</div>
+  <div class="header">Weather Forecast</div>
     <router-view/>
   </div>
 </template>

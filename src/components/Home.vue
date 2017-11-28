@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
     <div >
-      <h2>Weather Forecast</h2>
+      <h2>Weather Forecast - Automated Weather Data Aggregator
+      </h2>
       <input v-model='search_param' class='search_input' placeholder='Enter the location (e.g Dublin)' type='text'/>
       <router-link class='search_button' :to="searchUrl()" > Search</router-link>
     </div>

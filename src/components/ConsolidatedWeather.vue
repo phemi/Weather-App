@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h5>Applicable date: {{weather.applicable_date}}</h5>
+    <h4> {{weather.applicable_date}}</h4>
     <p>Weather: {{weather.weather_state_name}}</p>
-    <p>Temperature: {{weather.the_temp.toFixed(2)}}</p>
+    <p>Temperature: {{weather.the_temp}}</p>
     <p>Minimum temperature: {{weather.min_temp}}</p>
     <p>Maximum temperature: {{weather.max_temp}}</p>
     <img v-bind:src="imgUrl()"/>
